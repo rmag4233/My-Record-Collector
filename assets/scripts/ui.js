@@ -3,7 +3,14 @@
 const onSignUpLinkClick = function (event) {
   event.preventDefault()
   $('#sign-up').show()
-  console.log('this should work')
+}
+
+const signUpSuccess = function (data) {
+  $('#messageContent').text('You have signed up as ' + data.user.email + '. Sign in to start playing!')
+}
+
+const signUpFailure = function () {
+  $('#messageContent').text('This user may already exist. Please try again.')
 }
 
 const uiHandlers = function () {
@@ -11,5 +18,7 @@ const uiHandlers = function () {
 }
 
 module.exports = {
-  uiHandlers
+  uiHandlers,
+  signUpSuccess,
+  signUpFailure
 }
