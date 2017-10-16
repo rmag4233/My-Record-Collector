@@ -26,7 +26,7 @@
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
                 <li id="signUp">
-                  <a href="#signUp">Sign Up</a>
+                  <a href="#" id="signUpLink">Sign Up</a>
                 </li>
                 <li id="signIn">
                   <a href="#signIn">Sign In</a>
@@ -43,6 +43,15 @@
             </div>
           </div>
         </nav>
+        <form id="sign-up" style="display :none">
+          <fieldset>
+            <legend>Sign Up!</legend>
+            <input type="text" name="credentials[email]" placeholder="Enter Email" required id=signUpEmail>
+            <input type="password" name="credentials[password]" placeholder="Enter Password" required id=signUpPassword>
+            <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password" required id=signUpPasswordConf>
+            <input type="submit" name="submit" value="Sign up!">
+          </fieldset>
+          </form>
     <div class="container">
     <div class="jumbotron">
 
