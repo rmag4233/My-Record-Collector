@@ -6,7 +6,7 @@ const onSignUpLinkClick = function (event) {
 }
 
 const signUpSuccess = function (data) {
-  $('#messageContent').text('You have signed up as ' + data.user.email + '. Sign in to start playing!')
+  $('#messageContent').text('You have signed up as ' + data.user.email + '. Sign in to start cataloging!')
 }
 
 const signUpFailure = function () {
