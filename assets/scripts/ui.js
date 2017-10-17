@@ -24,6 +24,8 @@ const signUpFailure = function () {
 const signInSuccess = function (data) {
   $('#messageContent').text('')
   $('#signInMessage').text('Signed in as ' + data.user.email)
+  $('#sign-in').hide()
+  $('#signUpLink').hide()
   store.user = data.user
 }
 
@@ -32,7 +34,7 @@ const signInFailure = function () {
 }
 
 const uiHandlers = function () {
-  $('#signUp').on('click', onSignUpLinkClick)
+  $('#signUpLink').on('click', onSignUpLinkClick)
   $('#signInModal').on('click', onSignInLinkClick)
 }
 
