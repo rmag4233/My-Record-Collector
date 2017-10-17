@@ -11,10 +11,23 @@ const onSignInLinkClick = function (event) {
   event.preventDefault()
   $('#sign-in').show()
   $('#sign-up').hide()
+  $('#signInModal').hide()
+  $('#signUpModal').show()
+  $('#messageContent').hide()
+}
+
+const onSignUpModalLinkClink = function (event) {
+  event.preventDefault()
+  $('#sign-up').show()
+  $('#sign-in').hide()
+  $('#signUpModal').hide()
+  $('#signInModal').show()
+  $('#signInMessage').hide()
 }
 
 const signUpSuccess = function (data) {
   $('#messageContent').text('You have signed up as ' + data.user.email + '. Sign in to start cataloging!')
+  $('#signedOut').hide()
 }
 
 const signUpFailure = function () {
@@ -26,6 +39,9 @@ const signInSuccess = function (data) {
   $('#signInMessage').text('Signed in as ' + data.user.email)
   $('#sign-in').hide()
   $('#signUpLink').hide()
+  $('#signOut').show()
+  $('#changePassword').show()
+  $('#signedOut').hide()
   store.user = data.user
 }
 
@@ -33,9 +49,26 @@ const signInFailure = function () {
   $('#signInMessage').text('Please try signing in with a registered email and password.')
 }
 
+const signOutSuccess = function () {
+  store.user = null
+  $('#changePassword').hide()
+  $('#signOut').hide()
+  $('#signUpLink').show()
+  $('#signedOut').show()
+  $('#messageContent').text('')
+  $('#signInMessage').text('')
+  $('#signUpModal').hide()
+  $('#signInModal').show()
+}
+
+const signOutFailure = function () {
+  $('#signedOut').text('Please try again.')
+}
+
 const uiHandlers = function () {
   $('#signUpLink').on('click', onSignUpLinkClick)
   $('#signInModal').on('click', onSignInLinkClick)
+  $('#signUpModal').on('click', onSignUpModalLinkClink)
 }
 
 module.exports = {
@@ -43,5 +76,7 @@ module.exports = {
   signUpSuccess,
   signUpFailure,
   signInSuccess,
-  signInFailure
+  signInFailure,
+  signOutSuccess,
+  signOutFailure
 }
