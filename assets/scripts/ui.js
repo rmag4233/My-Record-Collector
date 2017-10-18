@@ -61,6 +61,8 @@ const signOutSuccess = function () {
   $('#signedOut').show()
   $('#messageContent').text('')
   $('#signInMessage').text('')
+  $('#messageContent').show()
+  $('#signInMessage').show()
   $('#signUpModal').hide()
   $('#signInModal').show()
 }
