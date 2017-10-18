@@ -85,6 +85,13 @@ const uiHandlers = function () {
   $('#signUpModal').on('click', onSignUpModalLinkClink)
 }
 
+const getAlbumsSuccess = function (albums) {
+  store.albums = albums
+  const albumID = store.albums.albums[0].title
+  $('#signedOut').show()
+  $('#signedOut').text('Album 1 ID is ' + albumID)
+}
+
 module.exports = {
   uiHandlers,
   signUpSuccess,
@@ -94,5 +101,6 @@ module.exports = {
   signOutSuccess,
   signOutFailure,
   changePasswordSuccess,
-  changePasswordFailure
+  changePasswordFailure,
+  getAlbumsSuccess
 }

@@ -40,9 +40,20 @@ const changePassword = function (data) {
   })
 }
 
+const getAlbums = function () {
+  return $.ajax({
+    method: 'GET',
+    url: config.apiOrigin + '/albums',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
   signOut,
-  changePassword
+  changePassword,
+  getAlbums
 }

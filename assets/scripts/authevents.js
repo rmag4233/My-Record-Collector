@@ -58,11 +58,22 @@ const onChangePassword = function (event) {
   }
 }
 
+const onGetAlbums = function (event) {
+  event.preventDefault()
+  console.log('this part works')
+  api.getAlbums()
+    .then(ui.getAlbumsSuccess)
+    .catch(ui.onError)
+    .then(function (games) {
+    })
+}
+
 const authHandlers = function () {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
   $('#signOut').on('click', onSignOut)
   $('#change-password').on('submit', onChangePassword)
+  $('#get-albums').on('click', onGetAlbums)
 }
 
 module.exports = {
