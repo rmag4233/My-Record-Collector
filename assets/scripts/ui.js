@@ -14,6 +14,7 @@ const onSignInLinkClick = function (event) {
   $('#signInModal').hide()
   $('#signUpModal').show()
   $('#messageContent').hide()
+  $('#signInMessage').show()
 }
 
 const onSignUpModalLinkClink = function (event) {
@@ -23,6 +24,8 @@ const onSignUpModalLinkClink = function (event) {
   $('#signUpModal').hide()
   $('#signInModal').show()
   $('#signInMessage').hide()
+  $('#messageContent').show()
+  $('#messageContent').text('')
 }
 
 const signUpSuccess = function (data) {
@@ -42,6 +45,7 @@ const signInSuccess = function (data) {
   $('#signOut').show()
   $('#changePassword').show()
   $('#signedOut').hide()
+  $('#signUpModal').hide()
   store.user = data.user
 }
 
@@ -65,6 +69,14 @@ const signOutFailure = function () {
   $('#signedOut').text('Please try again.')
 }
 
+const changePasswordSuccess = function () {
+  $('#passwordChange').text('Password has been successfully updated.')
+}
+
+const changePasswordFailure = function () {
+  $('#passwordChange').text('Please try again.')
+}
+
 const uiHandlers = function () {
   $('#signUpLink').on('click', onSignUpLinkClick)
   $('#signInModal').on('click', onSignInLinkClick)
@@ -78,5 +90,7 @@ module.exports = {
   signInSuccess,
   signInFailure,
   signOutSuccess,
-  signOutFailure
+  signOutFailure,
+  changePasswordSuccess,
+  changePasswordFailure
 }
