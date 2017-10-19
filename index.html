@@ -113,9 +113,40 @@
          To begin using, sign up and/or sign in and add to or remove from your collection.</p>
 
      <button id="get-albums" type="submit" name="submit" value="My Albums"class="btn btn-primary">View My Albums</button>
+     <button id="add-album" type="submit" name="submit" value="Add Album"class="btn btn-primary" data-toggle="modal" data-target="#addAlbumModal">Add Album</button>
 
     </div>
     <section id="signedOut" style="display: none">You have been logged out.</section>
+    <div class="modal fade" id="addAlbumModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <!-- <h4 class="modal-title" id="exampleModalLabel">Sign Up/In</h4> -->
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="add-album">
+              <fieldset>
+                <legend>Add Album:</legend>
+                <input type="text" name="albumTitle" placeholder="Album Title" id="newAlbumTitle"><br>
+                <input type="text" name="artistName" placeholder="Artist Name" id="newArtistName"><br>
+                <input type="text" name="yearReleased" placeholder="Year Released" id="yearReleased"><br>
+                <input type="text" name="format" placeholder="Format" id="format"><br>
+                <input type="text" name="catalogNum" placeholder="Catalog #" id="catalogNum"><br>
+                <br>
+                <button type="submit" name="submit" value="Add Album!"class="btn btn-primary">Add</button>
+                <section id="newAlbumAdd"></section>
+              </fieldset>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   </body>
 </html>

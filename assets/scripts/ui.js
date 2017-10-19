@@ -5,6 +5,7 @@ const store = require('./store')
 const onSignUpLinkClick = function (event) {
   event.preventDefault()
   $('#sign-up').show()
+  $('#sign-in').hide()
 }
 
 const onSignInLinkClick = function (event) {
