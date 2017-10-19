@@ -73,7 +73,7 @@ const onGetAlbums = function (event) {
   api.getAlbums()
     .then(ui.getAlbumsSuccess)
     .then()
-    .catch(ui.onError)
+    .catch(ui.getAlbumsError)
 }
 
 const onAddAlbum = function (event) {
@@ -86,7 +86,7 @@ const onAddAlbum = function (event) {
   const catalog = data.album.catalog
   api.addAlbum(title, artist, year, format, catalog)
     .then(ui.addAlbumSuccess)
-    .catch(ui.addAlbumError)
+    .catch(ui.addAlbumFailure)
 }
 
 const authHandlers = function () {

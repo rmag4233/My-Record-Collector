@@ -48,6 +48,8 @@ const signInSuccess = function (data) {
   $('#changePassword').show()
   $('#signedOut').hide()
   $('#signUpModal').hide()
+  $('#get-albums').show()
+  $('#add-album').show()
   store.user = data.user
 }
 
@@ -67,6 +69,9 @@ const signOutSuccess = function () {
   $('#signInMessage').show()
   $('#signUpModal').hide()
   $('#signInModal').show()
+  $('#viewAlbums').text('')
+  $('#get-albums').hide()
+  $('#add-album').hide()
 }
 
 const signOutFailure = function () {
@@ -79,12 +84,6 @@ const changePasswordSuccess = function () {
 
 const changePasswordFailure = function () {
   $('#passwordChange').text('Please try again.')
-}
-
-const uiHandlers = function () {
-  $('#signUpLink').on('click', onSignUpLinkClick)
-  $('#signInModal').on('click', onSignInLinkClick)
-  $('#signUpModal').on('click', onSignUpModalLinkClink)
 }
 
 // const getAlbumsSuccess = function (albums) {
@@ -102,9 +101,33 @@ const getAlbumsSuccess = function (albums) {
   $('#viewAlbums').append(showAlbumsHtml)
 }
 
-const addAlbumSuccess = function () {
-  $('#signedOut').show()
-  $('#signedOut').text('You added an album')
+const getAlbumsFailure = function () {
+  $('#viewAlbums').show()
+  $('#viewAlbums').text('Ooops! Looks like there was an issue, please try again.')
+}
+
+const addAlbumSuccess = function (data) {
+  $('#addedAlbumMessage').show()
+  $('#addedAlbumMessage').text('Nice, your new album has been added! Click view albums to see your updated collection!')
+  const form = document.getElementById('adding-album')
+  form.reset()
+}
+
+const addAlbumFailure = function () {
+  $('#addedAlbumMessage').show()
+  $('#addedAlbumMessage').text('Ooops! Looks like there was an issue, please try again.')
+}
+
+const hideAddedContent = function (event) {
+  event.preventDefault()
+  $('#addedAlbumMessage').text('')
+}
+
+const uiHandlers = function () {
+  $('#signUpLink').on('click', onSignUpLinkClick)
+  $('#signInModal').on('click', onSignInLinkClick)
+  $('#signUpModal').on('click', onSignUpModalLinkClink)
+  $('#add-album').on('click', hideAddedContent)
 }
 
 module.exports = {
@@ -118,5 +141,7 @@ module.exports = {
   changePasswordSuccess,
   changePasswordFailure,
   getAlbumsSuccess,
-  addAlbumSuccess
+  addAlbumSuccess,
+  getAlbumsFailure,
+  addAlbumFailure
 }
