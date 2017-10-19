@@ -74,6 +74,7 @@ const onGetAlbums = function (event) {
     .then(ui.getAlbumsSuccess)
     .then(function () {
       $('.delete').on('click', deleteAlbum)
+      $('.edit').on('click', editAlbum)
     })
     .catch(ui.getAlbumsError)
 }
@@ -100,6 +101,17 @@ const deleteAlbum = function (event) {
   api.deleteAlbum(thisID)
     .then(ui.deleteAlbumSuccess)
     .catch(ui.deleteAlbumFailure)
+}
+
+const editAlbum = function () {
+  event.preventDefault()
+  const album = event.target
+  const albumId = album.parentNode
+  const albumParent = albumId.parentNode
+  const thisID = albumParent.getAttribute('data-id')
+  $('#editAlbumModal').modal('show')
+  store.album = thisID
+  console.log('album id is ', store.album)
 }
 
 const authHandlers = function () {

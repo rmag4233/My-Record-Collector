@@ -155,5 +155,40 @@
   </div>
   <section id="deletedAlbum" style="display: none"></section>
   <div id="viewAlbums" class="myAlbums" style="display: none"></div>
+
+  <div class="modal fade" id="editAlbumModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <!-- <h4 class="modal-title" id="exampleModalLabel">Sign Up/In</h4> -->
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="edit-album">
+            <fieldset>
+              <legend>Edit Album:</legend>
+              <input type="text" name="editAlbum[title]" placeholder="Album Title" id="newAlbumTitle"><br>
+              <input type="text" name="editAlbum[name]" placeholder="Artist Name" id="newArtistName"><br>
+              <input type="text" name="editAlbum[year]" placeholder="Year Released" id="yearReleased"><br>
+              <input type="text" name="editAlbum[format]" placeholder="Format" id="format"><br>
+              <input type="text" name="editAlbum[catalog]" placeholder="Catalog #" id="catalogNum"><br>
+              <br>
+              <section id="editedAlbumMessage" style="display: none"></section>
+              <br>
+              <button type="submit" name="submit" value="Edit!"class="btn btn-primary">Submit</button>
+              <section id="albumEdit"></section>
+            </fieldset>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
   </body>
 </html>
