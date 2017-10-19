@@ -4,6 +4,7 @@
  <!-- Developers, why are we using data-id and not just id? -->
 <div>
   <u1 data-id="{{album.id}}">
+    <li>Album ID is {{album.id}}</li>
     <li><b>Album Title:</b> {{album.title}}</li>
     <li>{{#if album.artist_name}}
       <b>Artist:</b> {{album.artist_name}}
@@ -25,7 +26,7 @@
     {{else}}
       <b>Catalog Number:</b> No Description.
     {{/if}}</li>
-    <li><button class="btn btn-primary" id="edit">Edit</button>   <button class="btn btn-primary" id="delete">Delete</button></li>
+    <li><button class="edit">Edit</button>   <button class="delete">Delete</button></li>
     <br>
   </ul>
  </div>

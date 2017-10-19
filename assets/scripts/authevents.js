@@ -72,7 +72,9 @@ const onGetAlbums = function (event) {
   event.preventDefault()
   api.getAlbums()
     .then(ui.getAlbumsSuccess)
-    .then()
+    .then(function () {
+      $('.delete').on('click', deleteAlbum)
+    })
     .catch(ui.getAlbumsError)
 }
 
@@ -87,6 +89,17 @@ const onAddAlbum = function (event) {
   api.addAlbum(title, artist, year, format, catalog)
     .then(ui.addAlbumSuccess)
     .catch(ui.addAlbumFailure)
+}
+
+const deleteAlbum = function (event) {
+  event.preventDefault()
+  console.log('this is ', $(this).parent().parent())
+  const album = event.target
+  const albumId = album.parentNode
+  const albumParent = albumId.parentNode
+  const thisID = albumParent.getAttribute('data-id')
+  // const albumId = album.parentNode.getAttribute('data-id')
+  console.log('delete this album ID ', thisID)
 }
 
 const authHandlers = function () {
