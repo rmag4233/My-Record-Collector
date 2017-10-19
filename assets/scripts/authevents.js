@@ -82,7 +82,7 @@ const onAddAlbum = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
   const title = data.album.title
-  const artist = data.album.artist
+  const artist = data.album.name
   const year = data.album.year
   const format = data.album.format
   const catalog = data.album.catalog
@@ -93,13 +93,13 @@ const onAddAlbum = function (event) {
 
 const deleteAlbum = function (event) {
   event.preventDefault()
-  console.log('this is ', $(this).parent().parent())
   const album = event.target
   const albumId = album.parentNode
   const albumParent = albumId.parentNode
   const thisID = albumParent.getAttribute('data-id')
-  // const albumId = album.parentNode.getAttribute('data-id')
-  console.log('delete this album ID ', thisID)
+  api.deleteAlbum(thisID)
+    .then(ui.deleteAlbumSuccess)
+    .catch(ui.deleteAlbumFailure)
 }
 
 const authHandlers = function () {

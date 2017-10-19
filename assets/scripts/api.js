@@ -69,11 +69,22 @@ const addAlbum = function (title, artist, year, format, catalog) {
   })
 }
 
+const deleteAlbum = function (id) {
+  return $.ajax({
+    url: config.apiOrigin + '/albums/' + id,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
   signOut,
   changePassword,
   getAlbums,
-  addAlbum
+  addAlbum,
+  deleteAlbum
 }

@@ -50,7 +50,10 @@ const signInSuccess = function (data) {
   $('#signUpModal').hide()
   $('#get-albums').show()
   $('#add-album').show()
+  $('#userNameNav').show()
   store.user = data.user
+  const user = store.user.email
+  $('#userName').text('Signed in as ' + user)
 }
 
 const signInFailure = function () {
@@ -99,6 +102,7 @@ const getAlbumsSuccess = function (albums) {
   const showAlbumsHtml = showAlbumsTemplate({ albums: albums.albums })
   $('#viewAlbums').show()
   $('#viewAlbums').append(showAlbumsHtml)
+  $('#deletedAlbum').text('')
 }
 
 const getAlbumsFailure = function () {
@@ -107,6 +111,7 @@ const getAlbumsFailure = function () {
 }
 
 const addAlbumSuccess = function (data) {
+  $('#viewAlbums').text('')
   $('#addedAlbumMessage').show()
   $('#addedAlbumMessage').text('Nice, your new album has been added! Click view albums to see your updated collection!')
   const form = document.getElementById('adding-album')
@@ -121,6 +126,12 @@ const addAlbumFailure = function () {
 const hideAddedContent = function (event) {
   event.preventDefault()
   $('#addedAlbumMessage').text('')
+}
+
+const deleteAlbumSuccess = function () {
+  $('#deletedAlbum').show()
+  $('#deletedAlbum').text('Album has been removed from your collection. Hit "View Albums" to see your current record collection')
+  $('#viewAlbums').text('')
 }
 
 const uiHandlers = function () {
@@ -143,5 +154,6 @@ module.exports = {
   getAlbumsSuccess,
   addAlbumSuccess,
   getAlbumsFailure,
-  addAlbumFailure
+  addAlbumFailure,
+  deleteAlbumSuccess
 }
