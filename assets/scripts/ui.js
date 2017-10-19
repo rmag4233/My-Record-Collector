@@ -93,6 +93,11 @@ const getAlbumsSuccess = function (albums) {
   $('#signedOut').text('Album 1 ID is ' + albumID)
 }
 
+const addAlbumSuccess = function () {
+  $('#signedOut').show()
+  $('#signedOut').text('You added an album')
+}
+
 module.exports = {
   uiHandlers,
   signUpSuccess,
@@ -103,5 +108,6 @@ module.exports = {
   signOutFailure,
   changePasswordSuccess,
   changePasswordFailure,
-  getAlbumsSuccess
+  getAlbumsSuccess,
+  addAlbumSuccess
 }

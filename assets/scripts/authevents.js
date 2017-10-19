@@ -60,12 +60,24 @@ const onChangePassword = function (event) {
 
 const onGetAlbums = function (event) {
   event.preventDefault()
-  console.log('this part works')
   api.getAlbums()
     .then(ui.getAlbumsSuccess)
     .catch(ui.onError)
-    .then(function (games) {
+    .then(function (albums) {
     })
+}
+
+const onAddAlbum = function (event) {
+  event.preventDefault()
+  const data = getFormFields(this)
+  const title = data.album.title
+  const artist = data.album.artist
+  const year = data.album.year
+  const format = data.album.format
+  const catalog = data.album.catalog
+  api.addAlbum(title, artist, year, format, catalog)
+    .then(ui.addAlbumSuccess)
+    .catch(ui.addAlbumError)
 }
 
 const authHandlers = function () {
@@ -74,6 +86,7 @@ const authHandlers = function () {
   $('#signOut').on('click', onSignOut)
   $('#change-password').on('submit', onChangePassword)
   $('#get-albums').on('click', onGetAlbums)
+  $('#adding-album').on('submit', onAddAlbum)
 }
 
 module.exports = {

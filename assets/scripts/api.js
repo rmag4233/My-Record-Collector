@@ -50,10 +50,30 @@ const getAlbums = function () {
   })
 }
 
+const addAlbum = function (title, artist, year, format, catalog) {
+  return $.ajax({
+    url: config.apiOrigin + '/albums',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: {
+      'album': {
+        'title': title,
+        'artist_name': artist,
+        'year_released': year,
+        'format': format,
+        'catalog_number': catalog
+      }
+    }
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
   signOut,
   changePassword,
-  getAlbums
+  getAlbums,
+  addAlbum
 }
