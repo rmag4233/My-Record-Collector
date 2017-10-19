@@ -58,13 +58,22 @@ const onChangePassword = function (event) {
   }
 }
 
+// const onGetAlbums = function (event) {
+//   event.preventDefault()
+//   api.getAlbums()
+//     .then(ui.getAlbumsSuccess)
+//     .catch(ui.onError)
+//     .then(function (albums) {
+//     })
+// }
+
+// below is the attempt to do the above through handlebars
 const onGetAlbums = function (event) {
   event.preventDefault()
   api.getAlbums()
     .then(ui.getAlbumsSuccess)
+    .then()
     .catch(ui.onError)
-    .then(function (albums) {
-    })
 }
 
 const onAddAlbum = function (event) {

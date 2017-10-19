@@ -1,6 +1,7 @@
 'use strict'
 
 const store = require('./store')
+const showAlbumsTemplate = require('./templates/album-listing.handlebars')
 
 const onSignUpLinkClick = function (event) {
   event.preventDefault()
@@ -86,11 +87,19 @@ const uiHandlers = function () {
   $('#signUpModal').on('click', onSignUpModalLinkClink)
 }
 
+// const getAlbumsSuccess = function (albums) {
+//   store.albums = albums
+//   const albumID = store.albums.albums[0].title
+//   $('#signedOut').show()
+//   $('#signedOut').text('Album 1 ID is ' + albumID)
+// }
+
+// below is the attempt to do the same as above with handlebars
+
 const getAlbumsSuccess = function (albums) {
-  store.albums = albums
-  const albumID = store.albums.albums[0].title
-  $('#signedOut').show()
-  $('#signedOut').text('Album 1 ID is ' + albumID)
+  const showAlbumsHtml = showAlbumsTemplate({ albums: albums.albums })
+  $('#viewAlbums').show()
+  $('#viewAlbums').append(showAlbumsHtml)
 }
 
 const addAlbumSuccess = function () {
