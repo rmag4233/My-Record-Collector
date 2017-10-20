@@ -7,6 +7,7 @@ const onSignUpLinkClick = function (event) {
   event.preventDefault()
   $('#sign-up').show()
   $('#sign-in').hide()
+  $('#messageContent').text('')
 }
 
 const onSignInLinkClick = function (event) {
@@ -30,12 +31,21 @@ const onSignUpModalLinkClink = function (event) {
   $('#signInMessage').hide()
   $('#messageContent').show()
   $('#messageContent').text('')
+  $('#signUpSignIn').text('')
   const form = document.getElementById('sign-in')
   form.reset()
 }
 
+// const appendText = function () {
+//   const txt1 = 'You have signed up as '
+//   const txt2 = data.user.email
+//   const txt3 = document.createElement("p")
+//   $('#messageContent').append(txt1, txt2, txt3)
+// }
+
 const signUpSuccess = function (data) {
   $('#messageContent').text('You have signed up as ' + data.user.email + '. Sign in to start cataloging!')
+  // appendText()
   $('#signedOut').hide()
 }
 
