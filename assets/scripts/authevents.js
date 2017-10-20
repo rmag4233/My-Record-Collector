@@ -111,7 +111,19 @@ const editAlbum = function () {
   const thisID = albumParent.getAttribute('data-id')
   $('#editAlbumModal').modal('show')
   store.album = thisID
-  console.log('album id is ', store.album)
+}
+
+const onEditAlbum = function (event) {
+  event.preventDefault()
+  const data = getFormFields(this)
+  const title = data.editAlbum.title
+  const artist = data.editAlbum.name
+  const year = data.editAlbum.year
+  const format = data.editAlbum.format
+  const catalog = data.editAlbum.catalog
+  api.editAlbum(title, artist, year, format, catalog)
+    .then(ui.editAlbumSuccess)
+    .catch(ui.editAlbumFailure)
 }
 
 const authHandlers = function () {
@@ -121,6 +133,7 @@ const authHandlers = function () {
   $('#change-password').on('submit', onChangePassword)
   $('#get-albums').on('click', onGetAlbums)
   $('#adding-album').on('submit', onAddAlbum)
+  $('#edit-album').on('submit', onEditAlbum)
 }
 
 module.exports = {

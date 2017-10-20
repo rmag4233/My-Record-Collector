@@ -134,11 +134,35 @@ const deleteAlbumSuccess = function () {
   $('#viewAlbums').text('')
 }
 
+const deleteAlbumFailure = function () {
+  $('#deletedAlbum').show()
+  $('#deletedAlbum').text('Ooops! Looks like there was an issue, please try again.')
+}
+
+const editAlbumSuccess = function () {
+  $('#editedAlbumMessage').show()
+  $('#editedAlbumMessage').text('Album has been updated. Hit "View Albums" to see your current record collection')
+  $('#viewAlbums').text('')
+  const form = document.getElementById('edit-album')
+  form.reset()
+}
+
+const editAlbumFailure = function () {
+  $('#editedAlbumMessage').show()
+  $('#editedAlbumMessage').text('Ooops! Looks like there was an issue, please try again.')
+}
+
+const hideEditedContent = function (event) {
+  event.preventDefault()
+  $('#editedAlbumMessage').text('')
+}
+
 const uiHandlers = function () {
   $('#signUpLink').on('click', onSignUpLinkClick)
   $('#signInModal').on('click', onSignInLinkClick)
   $('#signUpModal').on('click', onSignUpModalLinkClink)
   $('#add-album').on('click', hideAddedContent)
+  $('#editClose').on('click', hideEditedContent)
 }
 
 module.exports = {
@@ -155,5 +179,8 @@ module.exports = {
   addAlbumSuccess,
   getAlbumsFailure,
   addAlbumFailure,
-  deleteAlbumSuccess
+  deleteAlbumSuccess,
+  editAlbumSuccess,
+  editAlbumFailure,
+  deleteAlbumFailure
 }
