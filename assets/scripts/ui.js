@@ -17,6 +17,8 @@ const onSignInLinkClick = function (event) {
   $('#signUpModal').show()
   $('#messageContent').hide()
   $('#signInMessage').show()
+  const form = document.getElementById('sign-up')
+  form.reset()
 }
 
 const onSignUpModalLinkClink = function (event) {
@@ -28,6 +30,8 @@ const onSignUpModalLinkClink = function (event) {
   $('#signInMessage').hide()
   $('#messageContent').show()
   $('#messageContent').text('')
+  const form = document.getElementById('sign-in')
+  form.reset()
 }
 
 const signUpSuccess = function (data) {
