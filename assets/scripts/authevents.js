@@ -70,6 +70,7 @@ const onChangePassword = function (event) {
 // below is the attempt to do the above through handlebars
 const onGetAlbums = function (event) {
   event.preventDefault()
+  $('#viewAlbums').text('')
   api.getAlbums()
     .then(ui.getAlbumsSuccess)
     .then(function () {
