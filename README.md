@@ -36,9 +36,9 @@ I am most proud of the UI of my application as I feel as though it is very neat 
 ## Wireframes and User Stories
 
 Wireframes -
-https://imgur.com/fKPuEjh
-https://imgur.com/amk7tU7
-https://imgur.com/X6sTLPD  
+https://imgur.com/fKPuEjh <br>
+https://imgur.com/amk7tU7 <br>
+https://imgur.com/X6sTLPD
 
 User Stories -
 
