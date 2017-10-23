@@ -19,16 +19,26 @@ It's a simple yet well known problem for music enthusiasts, especially record co
 
 ## Planning Phase
 
-The planning phase of this game started when I found out that the first project would be a tic-tac-toe game. Immediately, I started thinking about how the subjects covered in class could apply to solving the problem of creating an interactive tic-tac-toe game. My approach was to start small, understanding that despite the seemingly simple nature of the task at hand, there could be gotchas along the way. Fortunately, through wire framing and writing user stories, I was able to develop a strategy for how to start the game. First, I would create a very basic HTML structure so that I could test my functionality in browser, with minimal styling. I would build my game board, consisting of 9 div elements with unique ID names, so that I could easily keep track of the state of each element by assigning a click event handler to their HTML class. I knew that on the backend I would be creating an empty array to represent the state of the game, with pushes taking place on each valid click. From there, I knew I would need variables to store the current player, playerX, playerO, whether or not there was a winner or if the game was over and functions to play the game, check for a winner and switch the player. From there, constant testing allowed me to get the site in working order with no known user facing issues.
+The planning phase for this app started almost instantly after the assignment of the project. When I learned that the content/objective of the application was on the developer to come up with, I immediately began asking myself "what app would I want to use after building?" The answer was quite obvious - I wanted to create an application that would allow me to keep track of my record collection in a digital format. Why? Because I am someone who enjoys to collect records and I want to be able to keep track of it so I know whether or not I have misplaced a record (perhaps in a move) and so I only have to refer once to the catalog number on the record and from there can reference sites to get a sense for how much my record collection is worth. Simply put - I wanted to create a product that I had knowledge of, an interest in building and a use for after building.
 
-I am most proud of an extra feature I added which allows users to recall games that they have previously started and continue to play it. Parsing the JSON to reconfigure the board was relatively simple, but it took some creativity for me to determine who the current player should be on a retrieved game. While the api stored the state of the game and whether or not it was over, it did not store who the current player was. So, what I did was loop through the retrieved game array, count how many empty spaces there were (determined by the value empty string value in the array) and ran a modulo operator to determine if the count of empty strings was odd or even. If it was odd, the current player would be X (or whomever the first player was) and if it was even, the current player would be o (or whomever the second player was).
+My approach for this project, from a development perspective, was to begin by building out a clean UI using Bootstrap. To ensure I stayed on track with this approach, I started by drawing some descriptive wireframes (linked below) and really developing a sense in my head for how I wanted the user to traverse through the application. I wanted to make use of modal windows and handlebars, so I paid particular attention to how those attributes would work within the context of the application.
+
+Once I had a working shell of the front end, I began to develop the user authentication functionality. I knew I wanted to have a user sign up and sign in before having access to view, add, edit or delete any albums as well as be able to make other user actions such as change password and sign out. Methodically, I added each piece of user functionality and tested that the user messaging and actions that were available for the user to perform (through the buttons on the page) made sense with where the user was in the application.
+
+Next I added my album resource to my API, using curl scripts to ensure that as I built out the resource, I was able to perform the expected actions on it. After confirming ability to add, edit, delete and show the album resource through curl scripts. I connected the resource to my front end and using handlebars and modal windows methodically built out the functionality I tested in my curl scripts to my UI.
+
+Once I tested through this functionality, it was time for me to the connect the user to the album. I knew that the relationship the resources would have would be one user has many albums and so I modified my albums resource to reflect that. In addition, I knew that the albums table was only going to show the albums that the logged in user had in their collection. This meant that a user needed to be logged in to view their albums, so I made the album controller inherit from the ProtectedController class and made it so that actions such as index, show, update and destory were based on the current users list of albums.
+
+I am most proud of the UI of my application as I feel as though it is very neat and aesthetically pleasing to look at. It is also responsive and therefore meets my 18th user story below which allows me to update my collection in real time.
+
+
 
 ## Wireframes and User Stories
 
 Wireframes -
-(https://imgur.com/fKPuEjh)
-(https://imgur.com/amk7tU7)
-(https://imgur.com/X6sTLPD)
+https://imgur.com/fKPuEjh
+https://imgur.com/amk7tU7
+https://imgur.com/X6sTLPD
 
 User Stories -
 
@@ -49,7 +59,19 @@ User Stories -
 15. As a user, I want to be able to quickly see how many records I have in my collection
 16. As a user, I want to be able to see albums by an artist in my collection **** (not MVP)
 17. As a user, I want to be able to remove an album from my collection
+18. As a user, I want to be able to access My Record Collector from my phone so that I can update my collection in real time.
 
 ## Future Iterations
 
 In future iterations of this project, I would like to build out functionality that allows multiple users to view other people's lists/search the entire database for all albums that people have in their collection so that users could try to make trades/buy records from one another. There are also additional APIs I would like to research connecting to - perhaps a Spotify API or to a site that provides the user with the value of a piece of their collection based on information like the catalog number and the condition of the record. I will be looking to add this functionality in future releases.
+
+## Links to Deployed Sites
+
+Front End -
+https://rmag4233.github.io/My-Record-Collector/
+
+Back End -
+https://my-record-collector.herokuapp.com/
+
+## Repo for API
+https://github.com/rmag4233/My-Record-Collector-API
