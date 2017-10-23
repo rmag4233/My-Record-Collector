@@ -87,6 +87,7 @@ const signOutSuccess = function () {
   $('#signUpModal').hide()
   $('#signInModal').show()
   $('#viewAlbums').text('')
+  $('#myAlbums').text('')
   $('#get-albums').hide()
   $('#add-album').hide()
 }
@@ -113,10 +114,21 @@ const changePasswordFailure = function () {
 // below is the attempt to do the same as above with handlebars
 
 const getAlbumsSuccess = function (albums) {
+  store.albums = albums
   const showAlbumsHtml = showAlbumsTemplate({ albums: albums.albums })
+  $('#myAlbums').show()
+  howManyAlbums()
   $('#viewAlbums').show()
   $('#viewAlbums').append(showAlbumsHtml)
   $('#deletedAlbum').text('')
+}
+
+const howManyAlbums = function () {
+  if (store.albums.albums.length === 1) {
+    $('#myAlbums').text('You have ' + store.albums.albums.length + ' record in your collection:')
+  } else {
+    $('#myAlbums').text('You have ' + store.albums.albums.length + ' records in your collection:')
+  }
 }
 
 const getAlbumsFailure = function () {
@@ -126,6 +138,7 @@ const getAlbumsFailure = function () {
 
 const addAlbumSuccess = function (data) {
   $('#viewAlbums').text('')
+  $('#myAlbums').text('')
   $('#addedAlbumMessage').show()
   $('#addedAlbumMessage').text('Nice, your new album has been added! Click view albums to see your updated collection!')
   const form = document.getElementById('adding-album')
@@ -146,6 +159,7 @@ const deleteAlbumSuccess = function () {
   $('#deletedAlbum').show()
   $('#deletedAlbum').text('Album has been removed from your collection. Hit "View Albums" to see your current record collection')
   $('#viewAlbums').text('')
+  $('#myAlbums').text('')
 }
 
 const deleteAlbumFailure = function () {
@@ -157,6 +171,7 @@ const editAlbumSuccess = function () {
   $('#editedAlbumMessage').show()
   $('#editedAlbumMessage').text('Album has been updated. Hit "View Albums" to see your current record collection')
   $('#viewAlbums').text('')
+  $('#myAlbums').text('')
   const form = document.getElementById('edit-album')
   form.reset()
 }
