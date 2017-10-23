@@ -93,6 +93,7 @@ const signOutSuccess = function () {
   $('#get-albums').hide()
   $('#add-album').hide()
   $('#userNameNav').hide()
+  $('#deletedAlbum').text('')
 }
 
 const signOutFailure = function () {
@@ -123,7 +124,7 @@ const getAlbumsSuccess = function (albums) {
   howManyAlbums()
   $('#viewAlbums').show()
   $('#viewAlbums').append(showAlbumsHtml)
-  $('#deletedAlbum').text('')
+  $('#deletedAlbum').hide()
 }
 
 const howManyAlbums = function () {
