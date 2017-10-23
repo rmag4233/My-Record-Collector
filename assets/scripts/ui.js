@@ -2,6 +2,7 @@
 
 const store = require('./store')
 const showAlbumsTemplate = require('./templates/album-listing.handlebars')
+const searchAlbumsTemplate = require('./templates/search-album-listing.handlebars')
 
 const onSignUpLinkClick = function (event) {
   event.preventDefault()
@@ -66,6 +67,7 @@ const signInSuccess = function (data) {
   $('#signUpModal').hide()
   $('#get-albums').show()
   $('#add-album').show()
+  $('#search-albums').show()
   $('#userNameNav').show()
   store.user = data.user
   const user = store.user.email
@@ -92,8 +94,10 @@ const signOutSuccess = function () {
   $('#myAlbums').text('')
   $('#get-albums').hide()
   $('#add-album').hide()
+  $('#search-albums').hide()
   $('#userNameNav').hide()
   $('#deletedAlbum').text('')
+  $('#searching-albums').hide()
 }
 
 const signOutFailure = function () {
@@ -125,6 +129,25 @@ const getAlbumsSuccess = function (albums) {
   $('#viewAlbums').show()
   $('#viewAlbums').append(showAlbumsHtml)
   $('#deletedAlbum').hide()
+  $('#searching-albums').show()
+}
+
+const searchAlbum = function (artistSearch) {
+  const searchAlbumArray = []
+  for (let i = 0; i < store.albums.albums.length; i++) {
+    if (store.albums.albums[i].artist_name === artistSearch) {
+      searchAlbumArray.push(store.albums.albums[i])
+    }
+  } const showAlbumsHtml = searchAlbumsTemplate({ albums: searchAlbumArray })
+  $('#viewAlbums').text('')
+  $('#viewAlbums').append(showAlbumsHtml)
+  if (searchAlbumArray.length === 1) {
+    $('#myAlbums').text('You Have ' + searchAlbumArray.length + ' Record by ' + artistSearch + ' In Your Collection:')
+  } else {
+    $('#myAlbums').text('You Have ' + searchAlbumArray.length + ' Records by ' + artistSearch + ' In Your Collection:')
+  }
+  const form = document.getElementById('searching-albums')
+  form.reset()
 }
 
 const howManyAlbums = function () {
@@ -230,5 +253,6 @@ module.exports = {
   editAlbumSuccess,
   editAlbumFailure,
   deleteAlbumFailure,
-  getAlbumSuccess
+  getAlbumSuccess,
+  searchAlbum
 }

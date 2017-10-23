@@ -142,6 +142,13 @@ const onEditAlbum = function (event) {
     .catch(ui.editAlbumFailure)
 }
 
+const onSearchAlbums = function (event) {
+  event.preventDefault()
+  const data = getFormFields(this)
+  const artistSearch = data.searchAlbum.name
+  ui.searchAlbum(artistSearch)
+}
+
 const authHandlers = function () {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
@@ -154,6 +161,7 @@ const authHandlers = function () {
   $('#editClose').on('click', onGetAlbums)
   $('#passwordClose').on('click', clearPassword)
   $('#signClose').on('click', onCloseSignUp)
+  $('#searching-albums').on('submit', onSearchAlbums)
 }
 
 module.exports = {
