@@ -186,6 +186,19 @@ const hideEditedContent = function (event) {
   $('#editedAlbumMessage').text('')
 }
 
+const getAlbumSuccess = function (album) {
+  const albumInput = $('#editAlbumTitle')
+  albumInput.val(album.album.title)
+  const artistInput = $('#editArtistName')
+  artistInput.val(album.album.artist_name)
+  const yearInput = $('#editYearReleased')
+  yearInput.val(album.album.year_released)
+  const formatInput = $('#editFormat')
+  formatInput.val(album.album.format)
+  const catalogInput = $('#editCatalogNum')
+  catalogInput.val(album.album.catalog_number)
+}
+
 const uiHandlers = function () {
   $('#signUpLink').on('click', onSignUpLinkClick)
   $('#signInModal').on('click', onSignInLinkClick)
@@ -211,5 +224,6 @@ module.exports = {
   deleteAlbumSuccess,
   editAlbumSuccess,
   editAlbumFailure,
-  deleteAlbumFailure
+  deleteAlbumFailure,
+  getAlbumSuccess
 }

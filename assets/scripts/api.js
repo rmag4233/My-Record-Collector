@@ -50,6 +50,16 @@ const getAlbums = function () {
   })
 }
 
+const getAlbum = function (id) {
+  return $.ajax({
+    method: 'GET',
+    url: config.apiOrigin + '/albums/' + id,
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 const addAlbum = function (title, artist, year, format, catalog) {
   return $.ajax({
     url: config.apiOrigin + '/albums',
@@ -106,5 +116,6 @@ module.exports = {
   getAlbums,
   addAlbum,
   deleteAlbum,
-  editAlbum
+  editAlbum,
+  getAlbum
 }

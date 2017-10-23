@@ -109,8 +109,13 @@ const editAlbum = function () {
   const albumId = album.parentNode
   const albumParent = albumId.parentNode
   const thisID = albumParent.getAttribute('data-id')
-  $('#editAlbumModal').modal('show')
   store.album = thisID
+  $('#editAlbumModal').modal('show')
+  api.getAlbum(thisID)
+    .then(ui.getAlbumSuccess)
+    .catch(ui.getAlbumsError)
+    .then(function (album) {
+    })
 }
 
 const onEditAlbum = function (event) {
