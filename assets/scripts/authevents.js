@@ -140,6 +140,8 @@ const authHandlers = function () {
   $('#get-albums').on('click', onGetAlbums)
   $('#adding-album').on('submit', onAddAlbum)
   $('#edit-album').on('submit', onEditAlbum)
+  $('#addClose').on('click', onGetAlbums)
+  $('#editClose').on('click', onGetAlbums)
 }
 
 module.exports = {
