@@ -4,26 +4,26 @@
  <!-- Developers, why are we using data-id and not just id? -->
 <div>
   <u1 data-id="{{album.id}}">
-    <li><b>Album Title:</b> {{album.title}}</li>
+    <li><b><u>Album Title:</b></u> {{album.title}}</li>
     <li>{{#if album.artist_name}}
-      <b>Artist:</b> {{album.artist_name}}
+      <b><u>Artist:</b></u> {{album.artist_name}}
     {{else}}
       <b>Artist:</b> No Description.
     {{/if}}</li>
     <li>{{#if album.year_released}}
-      <b>Year Released:</b> {{album.year_released}}
+      <b><u>Year Released:</b></u> {{album.year_released}}
     {{else}}
-      <b>Year Released:</b> No Description.
+      <b><u>Year Released:</b></u> No Description.
     {{/if}}</li>
     <li>{{#if album.format}}
-      <b>Format:</b> {{album.format}}
+      <b><u>Format:</b></u> {{album.format}}
     {{else}}
-      <b>Format:</b> No Description.
+      <b><u>Format:</b></u> No Description.
     {{/if}}</li>
     <li>{{#if album.catalog_number}}
-      <b>Catalog Number:</b> {{album.catalog_number}}
+      <b><u>Catalog Number:</b></u> {{album.catalog_number}}
     {{else}}
-      <b>Catalog Number:</b> No Description.
+      <b><u>Catalog Number:</b></u> No Description.
     {{/if}}</li>
     <li><button class="edit">Edit</button>   <button class="delete">Delete</button></li>
     <br>

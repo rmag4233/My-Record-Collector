@@ -7,6 +7,8 @@ const onSignUpLinkClick = function (event) {
   event.preventDefault()
   $('#sign-up').show()
   $('#sign-in').hide()
+  $('#signInModal').show()
+  $('#signUpModal').hide()
   $('#messageContent').text('')
 }
 
@@ -125,9 +127,9 @@ const getAlbumsSuccess = function (albums) {
 
 const howManyAlbums = function () {
   if (store.albums.albums.length === 1) {
-    $('#myAlbums').text('You have ' + store.albums.albums.length + ' record in your collection:')
+    $('#myAlbums').text('You Have ' + store.albums.albums.length + ' Record In Your Collection:')
   } else {
-    $('#myAlbums').text('You have ' + store.albums.albums.length + ' records in your collection:')
+    $('#myAlbums').text('You Have ' + store.albums.albums.length + ' Records In Your Collection:')
   }
 }
 

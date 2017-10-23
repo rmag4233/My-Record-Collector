@@ -50,7 +50,7 @@ const onChangePassword = function (event) {
   } else if (data.passwords.new.length === 0) {
     $('#passwordChange').text('Please enter a new password.')
   } else if (data.passwords.new === data.passwords.old) {
-    $('#passwordChange').text('New and old passwords are the same.')
+    $('#passwordChange').text('New and old passwords are the same. Please try again')
   } else {
     api.changePassword(data)
       .then(ui.changePasswordSuccess)

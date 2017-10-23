@@ -25,3 +25,10 @@
 .containerSignIn a {
   display: inline;
 }
+
+.howMany {
+  font-size: 18px;
+  font-weight: 500;
+  margin-left: 60px;
+  text-align: justify;
+}
