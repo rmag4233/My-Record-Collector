@@ -142,7 +142,7 @@ const addAlbumSuccess = function (data) {
   $('#viewAlbums').text('')
   $('#myAlbums').text('')
   $('#addedAlbumMessage').show()
-  $('#addedAlbumMessage').text('Nice, your new album has been added! Click view albums to see your updated collection!')
+  $('#addedAlbumMessage').text('Nice, your new album has been added! Close this window to see your updated record collection')
   const form = document.getElementById('adding-album')
   form.reset()
 }
@@ -159,7 +159,7 @@ const hideAddedContent = function (event) {
 
 const deleteAlbumSuccess = function () {
   $('#deletedAlbum').show()
-  $('#deletedAlbum').text('Album has been removed from your collection. Hit "View Albums" to see your current record collection')
+  $('#deletedAlbum').text('Album has been removed from your collection. Close this window to see your updated record collection')
   $('#viewAlbums').text('')
   $('#myAlbums').text('')
 }
@@ -171,7 +171,7 @@ const deleteAlbumFailure = function () {
 
 const editAlbumSuccess = function () {
   $('#editedAlbumMessage').show()
-  $('#editedAlbumMessage').text('Album has been updated. Hit "View Albums" to see your current record collection')
+  $('#editedAlbumMessage').text('Album has been updated. Close this window to see your updated record collection')
   $('#viewAlbums').text('')
   $('#myAlbums').text('')
   const form = document.getElementById('edit-album')
