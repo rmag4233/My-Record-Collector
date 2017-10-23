@@ -58,6 +58,11 @@ const onChangePassword = function (event) {
   }
 }
 
+const clearPassword = function () {
+  event.preventDefault()
+  $('#passwordChange').text('')
+}
+
 // const onGetAlbums = function (event) {
 //   event.preventDefault()
 //   api.getAlbums()
@@ -142,6 +147,7 @@ const authHandlers = function () {
   $('#edit-album').on('submit', onEditAlbum)
   $('#addClose').on('click', onGetAlbums)
   $('#editClose').on('click', onGetAlbums)
+  $('#passwordClose').on('click', clearPassword)
 }
 
 module.exports = {

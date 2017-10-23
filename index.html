@@ -99,15 +99,15 @@
                   <form id="change-password">
                     <fieldset>
                       <legend>Change Password:</legend>
-                      <input type="password" name="passwords[old]" placeholder="Enter Password" id="changeOld">
-                      <input type="password" name="passwords[new]" placeholder="Enter New Password" id="changeNew">
+                      <input type="password" name="passwords[old]" placeholder="Enter Password" required id="changeOld">
+                      <input type="password" name="passwords[new]" placeholder="Enter New Password" required id="changeNew">
                       <button type="submit" name="submit" value="Change Password!"class="btn btn-primary">Submit</button>
                       <section id="passwordChange"></section>
                     </fieldset>
                   </form>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal" id="passwordClose">Close</button>
                 </div>
               </div>
             </div>
