@@ -92,6 +92,7 @@ const signOutSuccess = function () {
   $('#myAlbums').text('')
   $('#get-albums').hide()
   $('#add-album').hide()
+  $('#userNameNav').hide()
 }
 
 const signOutFailure = function () {
@@ -159,7 +160,7 @@ const hideAddedContent = function (event) {
 
 const deleteAlbumSuccess = function () {
   $('#deletedAlbum').show()
-  $('#deletedAlbum').text('Album has been removed from your collection. Close this window to see your updated record collection')
+  $('#deletedAlbum').text('Album has been removed from your collection. Click "View Albums" to see your updated record collection')
   $('#viewAlbums').text('')
   $('#myAlbums').text('')
 }
