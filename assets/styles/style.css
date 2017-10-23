@@ -20,3 +20,8 @@
   color: #ffffff;
   font-family: "Helvetica Neue"
 }
+
+.containerSignIn section,
+.containerSignIn a {
+  display: inline;
+}

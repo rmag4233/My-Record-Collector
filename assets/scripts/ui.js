@@ -17,6 +17,7 @@ const onSignInLinkClick = function (event) {
   $('#signInModal').hide()
   $('#signUpModal').show()
   $('#messageContent').hide()
+  $('#signInAfterSignUp').hide()
   $('#signInMessage').show()
   const form = document.getElementById('sign-up')
   form.reset()
@@ -32,21 +33,18 @@ const onSignUpModalLinkClink = function (event) {
   $('#messageContent').show()
   $('#messageContent').text('')
   $('#signUpSignIn').text('')
+  $('#signInMessage').text('')
+  $('#signInAfterSignUp').hide()
   const form = document.getElementById('sign-in')
   form.reset()
 }
 
-// const appendText = function () {
-//   const txt1 = 'You have signed up as '
-//   const txt2 = data.user.email
-//   const txt3 = document.createElement("p")
-//   $('#messageContent').append(txt1, txt2, txt3)
-// }
-
 const signUpSuccess = function (data) {
-  $('#messageContent').text('You have signed up as ' + data.user.email + '. Sign in to start cataloging!')
-  // appendText()
+  $('#messageContent').text('You have signed up as ' + data.user.email)
   $('#signedOut').hide()
+  $('#signInMessage').text('')
+  $('#signInModal').hide()
+  $('#signInAfterSignUp').show()
 }
 
 const signUpFailure = function () {
@@ -55,6 +53,8 @@ const signUpFailure = function () {
 
 const signInSuccess = function (data) {
   $('#messageContent').text('')
+  $('#signInAfterSignUp').hide()
+  $('#signInMessage').show()
   $('#signInMessage').text('Signed in as ' + data.user.email)
   $('#sign-in').hide()
   $('#signUpLink').hide()
@@ -205,6 +205,7 @@ const uiHandlers = function () {
   $('#signUpModal').on('click', onSignUpModalLinkClink)
   $('#add-album').on('click', hideAddedContent)
   $('#editClose').on('click', hideEditedContent)
+  $('#signInAfterSignUp').on('click', onSignInLinkClick)
 }
 
 module.exports = {
