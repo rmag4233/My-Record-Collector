@@ -20,6 +20,11 @@ const onSignUp = function (event) {
   }
 }
 
+const onCloseSignUp = function () {
+  event.preventDefault()
+  $('#signInAfterSignUp').hide()
+}
+
 const onSignIn = function (event) {
   const data = getFormFields(this)
   event.preventDefault()
@@ -148,6 +153,7 @@ const authHandlers = function () {
   $('#addClose').on('click', onGetAlbums)
   $('#editClose').on('click', onGetAlbums)
   $('#passwordClose').on('click', clearPassword)
+  $('#signClose').on('click', onCloseSignUp)
 }
 
 module.exports = {

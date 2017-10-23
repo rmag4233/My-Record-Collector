@@ -58,7 +58,7 @@
                   <form id="sign-up">
                     <fieldset>
                       <legend>Sign up!</legend>
-                      <input type="text" name="credentials[email]" placeholder="Enter Email" required id=signUpEmail>
+                      <input type="email" name="credentials[email]" placeholder="Enter Email" required id=signUpEmail>
                       <input type="password" name="credentials[password]" placeholder="Enter Password" required id=signUpPassword>
                       <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password" required id=signUpPasswordConf>
                       <button type="submit" name="submit" value="Sign Up!"class="btn btn-primary">Submit</button>
@@ -72,7 +72,7 @@
                   <form id="sign-in" style="display: none">
                     <fieldset>
                       <legend>Sign in!</legend>
-                      <input type="text" name="credentials[email]" placeholder="Enter Email" required id=signInEmail>
+                      <input type="email" name="credentials[email]" placeholder="Enter Email" required id=signInEmail>
                       <input type="password" name="credentials[password]" placeholder="Enter Password" required id=signInPassword>
                       <button type="submit" name="submit" value="Sign In!"class="btn btn-primary">Submit</button>
                       <br>
@@ -81,7 +81,7 @@
                   <section id="signInMessage"></section>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal" id="signClose">Close</button>
                 </div>
               </div>
             </div>
