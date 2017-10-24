@@ -15,7 +15,6 @@ It's a simple yet well known problem for music enthusiasts, especially record co
 5. ajax requests to an api
 6. Bootstrap
 7. Handlebars
-8. Ruby on Rails
 
 ## Planning Phase
 
