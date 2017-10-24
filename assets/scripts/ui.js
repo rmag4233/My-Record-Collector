@@ -14,6 +14,11 @@ const onSignUpLinkClick = function (event) {
   $('#signInMessage').text('')
 }
 
+const onPasswordChangeLink = function (event) {
+  event.preventDefault()
+  $('#passwordChange').text('')
+}
+
 const onSignInLinkClick = function (event) {
   event.preventDefault()
   $('#sign-in').show()
@@ -72,7 +77,7 @@ const signInSuccess = function (data) {
   $('#userNameNav').show()
   store.user = data.user
   const user = store.user.email
-  $('#userName').text('Signed in as ' + user)
+  $('#userNameNav').text('Signed in as ' + user)
 }
 
 const signInFailure = function () {
@@ -235,6 +240,7 @@ const uiHandlers = function () {
   $('#add-album').on('click', hideAddedContent)
   $('#editClose').on('click', hideEditedContent)
   $('#signInAfterSignUp').on('click', onSignInLinkClick)
+  $('#changePassword').on('click', onPasswordChangeLink)
 }
 
 module.exports = {
