@@ -39,11 +39,14 @@
 }
 
 img {
-  /*display: inline-block;*/
   float: right;
   height: 125px;
   margin: auto;
   padding-bottom: 25px;
   vertical-align: middle;
   width: 100px;
+}
+
+.format-class {
+  width: 27%;
 }

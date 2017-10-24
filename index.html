@@ -120,7 +120,6 @@
 
       <p>Welcome to My Record Collector! The app that allows you to keep track of your record collection in a digital format.
          Sign up and sign in to start adding to your collection!
-         <!-- <a href="https://imgur.com/OWiYGNB"><img src="https://i.imgur.com/OWiYGNB.png" alt="vinyl" title="source: imgur.com" /></a> -->
       </p>
 
      <button id="get-albums" type="submit" name="submit" value="My Albums"class="btn btn-primary" style="display: none">View My Albums</button>
@@ -144,7 +143,11 @@
                 <input type="text" name="album[title]" placeholder="Album Title" required id="newAlbumTitle"><br>
                 <input type="text" name="album[name]" placeholder="Artist Name" required id="newArtistName"><br>
                 <input type="text" name="album[year]" placeholder="Year Released" required id="yearReleased"><br>
-                <input type="text" name="album[format]" placeholder="Format" required id="format"><br>
+                <select class="format-class" name="album[format]" required id="format">
+                  <option value="" disabled selected hidden>Format</option>
+                  <option value="CD">CD</option>
+                  <option value="Tape">Tape</option>
+                  <option value="Vinyl">Vinyl</option></select><br>
                 <input type="text" name="album[catalog]" placeholder="Catalog #" id="catalogNum"><br>
                 <br>
                 <section id="addedAlbumMessage" style="display: none"></section>
