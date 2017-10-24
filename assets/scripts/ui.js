@@ -77,7 +77,7 @@ const signInSuccess = function (data) {
   $('#userNameNav').show()
   store.user = data.user
   const user = store.user.email
-  $('#userNameNav').text('Signed in as ' + user)
+  $('#userNameNav').append(user)
 }
 
 const signInFailure = function () {
