@@ -141,7 +141,7 @@
                 <legend>Add Album:</legend>
                 <input type="text" name="album[title]" placeholder="Album Title" required id="newAlbumTitle"><br>
                 <input type="text" name="album[name]" placeholder="Artist Name" required id="newArtistName"><br>
-                <input type="text" name="album[year]" placeholder="Year Released" required id="yearReleased"><br>
+                <input type="text" name="album[year]" placeholder="Year Released" required id="yearReleased" maxlength="4"><br>
                 <select class="format-class" name="album[format]" required id="format">
                   <option value="" disabled selected hidden>Format</option>
                   <option value="CD">CD</option>
@@ -184,7 +184,7 @@
               <legend>Edit Album:</legend>
               <input type="text" name="editAlbum[title]" placeholder="Album Title" required id="editAlbumTitle"><br>
               <input type="text" name="editAlbum[name]" placeholder="Artist Name" required id="editArtistName"><br>
-              <input type="text" name="editAlbum[year]" placeholder="Year Released" required id="editYearReleased"><br>
+              <input type="text" name="editAlbum[year]" placeholder="Year Released" required id="editYearReleased" maxlength="4"><br>
               <select class="format-class" name="editAlbum[format]" required id="editFormat">
                 <option value="" disabled selected hidden>Format</option>
                 <option value="CD">CD</option>

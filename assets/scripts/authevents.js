@@ -98,9 +98,14 @@ const onAddAlbum = function (event) {
   const year = data.album.year
   const format = data.album.format
   const catalog = data.album.catalog
-  api.addAlbum(title, artist, year, format, catalog)
-    .then(ui.addAlbumSuccess)
-    .catch(ui.addAlbumFailure)
+  if (year.match(/[a-z]/i)) {
+    $('#addedAlbumMessage').show()
+    $('#addedAlbumMessage').text('Please enter a numeric year.')
+  } else {
+    api.addAlbum(title, artist, year, format, catalog)
+      .then(ui.addAlbumSuccess)
+      .catch(ui.addAlbumFailure)
+  }
 }
 
 const deleteAlbum = function (event) {
@@ -121,6 +126,7 @@ const editAlbum = function () {
   const albumParent = albumId.parentNode
   const thisID = albumParent.getAttribute('data-id')
   store.album = thisID
+  $('#editedAlbumMessage').text('')
   $('#editAlbumModal').modal('show')
   api.getAlbum(thisID)
     .then(ui.getAlbumSuccess)
@@ -137,9 +143,14 @@ const onEditAlbum = function (event) {
   const year = data.editAlbum.year
   const format = data.editAlbum.format
   const catalog = data.editAlbum.catalog
-  api.editAlbum(title, artist, year, format, catalog)
-    .then(ui.editAlbumSuccess)
-    .catch(ui.editAlbumFailure)
+  if (year.match(/[a-z]/i)) {
+    $('#editedAlbumMessage').show()
+    $('#editedAlbumMessage').text('Please enter a numeric year.')
+  } else {
+    api.editAlbum(title, artist, year, format, catalog)
+      .then(ui.editAlbumSuccess)
+      .catch(ui.editAlbumFailure)
+  }
 }
 
 const onSearchAlbums = function (event) {

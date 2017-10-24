@@ -186,6 +186,8 @@ const addAlbumFailure = function () {
 const hideAddedContent = function (event) {
   event.preventDefault()
   $('#addedAlbumMessage').text('')
+  const form = document.getElementById('adding-album')
+  form.reset()
 }
 
 const deleteAlbumSuccess = function () {
