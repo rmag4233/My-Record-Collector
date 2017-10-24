@@ -185,7 +185,11 @@
               <input type="text" name="editAlbum[title]" placeholder="Album Title" required id="editAlbumTitle"><br>
               <input type="text" name="editAlbum[name]" placeholder="Artist Name" required id="editArtistName"><br>
               <input type="text" name="editAlbum[year]" placeholder="Year Released" required id="editYearReleased"><br>
-              <input type="text" name="editAlbum[format]" placeholder="Format" required id="editFormat"><br>
+              <select class="format-class" name="editAlbum[format]" required id="editFormat">
+                <option value="" disabled selected hidden>Format</option>
+                <option value="CD">CD</option>
+                <option value="Tape">Tape</option>
+                <option value="Vinyl">Vinyl</option></select><br>
               <input type="text" name="editAlbum[catalog]" placeholder="Catalog #" id="editCatalogNum"><br>
               <br>
               <section id="editedAlbumMessage" style="display: none"></section>
