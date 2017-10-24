@@ -101,7 +101,7 @@ const signOutSuccess = function () {
   $('#get-albums').hide()
   $('#add-album').hide()
   $('#search-albums').hide()
-  $('#userNameNav').hide()
+  $('#userNameNav').text('')
   $('#deletedAlbum').text('')
   $('#searching-albums').hide()
 }
