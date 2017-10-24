@@ -50,3 +50,8 @@ img {
 .format-class {
   width: 27%;
 }
+
+.message {
+  margin-left: 60px;
+  text-align: justify;
+}

@@ -126,7 +126,6 @@
      <button id="add-album" type="submit" name="submit" value="Add Album"class="btn btn-primary" data-toggle="modal" data-target="#addAlbumModal" style="display: none">Add Album</button>
 
     </div>
-    <section id="signedOut" style="display: none">You have been logged out.</section>
     <div class="modal fade" id="addAlbumModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -164,7 +163,8 @@
       </div>
     </div>
   </div>
-  <section id="deletedAlbum" style="display: none"></section>
+  <section id="signedOut" style="display: none" class="message">You have been logged out.</section>
+  <section id="deletedAlbum" style="display: none" class="message"></section>
   <section id="myAlbums" style="display: none" class="howMany"></section>
   <br>
   <div id="viewAlbums" class="myAlbums" style="display: none"></div>
@@ -216,6 +216,5 @@
             <section id="searchAlbums"></section>
           </fieldset>
   </form>
-
   </body>
 </html>
