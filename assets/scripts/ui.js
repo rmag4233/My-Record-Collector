@@ -11,6 +11,7 @@ const onSignUpLinkClick = function (event) {
   $('#signInModal').show()
   $('#signUpModal').hide()
   $('#messageContent').text('')
+  $('#signInMessage').text('')
 }
 
 const onSignInLinkClick = function (event) {
@@ -135,7 +136,7 @@ const getAlbumsSuccess = function (albums) {
 const searchAlbum = function (artistSearch) {
   const searchAlbumArray = []
   for (let i = 0; i < store.albums.albums.length; i++) {
-    if (store.albums.albums[i].artist_name === artistSearch) {
+    if (store.albums.albums[i].artist_name.toUpperCase() === artistSearch.toUpperCase()) {
       searchAlbumArray.push(store.albums.albums[i])
     }
   } const showAlbumsHtml = searchAlbumsTemplate({ albums: searchAlbumArray })
