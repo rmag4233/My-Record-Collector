@@ -135,7 +135,9 @@ const getAlbumsSuccess = function (albums) {
   $('#viewAlbums').show()
   $('#viewAlbums').append(showAlbumsHtml)
   $('#deletedAlbum').hide()
-  $('#searching-albums').show()
+  if (store.albums.albums.length >= 1) {
+    $('#searching-albums').show()
+  }
 }
 
 const searchAlbum = function (artistSearch) {
