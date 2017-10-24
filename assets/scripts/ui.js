@@ -187,6 +187,7 @@ const deleteAlbumSuccess = function () {
   $('#deletedAlbum').text('Album has been removed from your collection. Click "View Albums" to see your updated record collection')
   $('#viewAlbums').text('')
   $('#myAlbums').text('')
+  $('#searching-albums').hide()
 }
 
 const deleteAlbumFailure = function () {
