@@ -142,9 +142,9 @@ const searchAlbum = function (artistSearch) {
   $('#viewAlbums').text('')
   $('#viewAlbums').append(showAlbumsHtml)
   if (searchAlbumArray.length === 1) {
-    $('#myAlbums').text('You Have ' + searchAlbumArray.length + ' Record by ' + artistSearch + ' In Your Collection:')
+    $('#myAlbums').text('You Have ' + searchAlbumArray.length + ' Record by ' + artistSearch + ' In Your Collection (please hit "View My Albums" to edit or delete):')
   } else {
-    $('#myAlbums').text('You Have ' + searchAlbumArray.length + ' Records by ' + artistSearch + ' In Your Collection:')
+    $('#myAlbums').text('You Have ' + searchAlbumArray.length + ' Records by ' + artistSearch + ' In Your Collection (please hit "View My Albums" to edit or delete):')
   }
   const form = document.getElementById('searching-albums')
   form.reset()
