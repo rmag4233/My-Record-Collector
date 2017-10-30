@@ -121,6 +121,11 @@ const deleteAlbum = function (event) {
     .then(ui.deleteAlbumSuccess)
     .then(api.getAlbums)
     .then(ui.getAlbumsSuccess)
+    .then(ui.deleteAlbumSuccessMessage)
+    .then(function () {
+      $('.delete').on('click', deleteAlbum)
+      $('.edit').on('click', editAlbum)
+    })
     .catch(ui.deleteAlbumFailure)
 }
 

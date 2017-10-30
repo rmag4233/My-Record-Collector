@@ -62,7 +62,6 @@ const signUpFailure = function () {
 
 const signInSuccess = function (data) {
   $('#messageContent').text('')
-  $('#sign-up').hide()
   $('#signInAfterSignUp').hide()
   $('#signInMessage').show()
   $('#signInMessage').text('Signed in as ' + data.user.email)
@@ -194,11 +193,14 @@ const hideAddedContent = function (event) {
 }
 
 const deleteAlbumSuccess = function () {
-  $('#deletedAlbum').show()
-  $('#deletedAlbum').text('Album has been removed from your collection. Click "View Albums" to see your updated record collection')
   $('#viewAlbums').text('')
   $('#myAlbums').text('')
   $('#searching-albums').hide()
+}
+
+const deleteAlbumSuccessMessage = function () {
+  $('#deletedAlbum').show()
+  $('#deletedAlbum').text('Album has been removed from your collection.')
 }
 
 const deleteAlbumFailure = function () {
@@ -267,5 +269,6 @@ module.exports = {
   editAlbumFailure,
   deleteAlbumFailure,
   getAlbumSuccess,
-  searchAlbum
+  searchAlbum,
+  deleteAlbumSuccessMessage
 }
