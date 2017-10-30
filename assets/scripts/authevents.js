@@ -7,6 +7,7 @@ const store = require('./store')
 
 const onSignUp = function (event) {
   const data = getFormFields(this)
+  const dataSave = data
   event.preventDefault()
   if (data.credentials.password !== data.credentials.password_confirmation) {
     $('#messageContent').text('Password and password confirmation do not match.')
@@ -16,6 +17,8 @@ const onSignUp = function (event) {
     $('#signUpPasswordConf').val('')
     api.signUp(data)
       .then(ui.signUpSuccess)
+      .then(() => api.signIn(dataSave))
+      .then(ui.signInSuccess)
       .catch(ui.signUpFailure)
   }
 }
@@ -116,6 +119,8 @@ const deleteAlbum = function (event) {
   const thisID = albumParent.getAttribute('data-id')
   api.deleteAlbum(thisID)
     .then(ui.deleteAlbumSuccess)
+    .then(api.getAlbums)
+    .then(ui.getAlbumsSuccess)
     .catch(ui.deleteAlbumFailure)
 }
 

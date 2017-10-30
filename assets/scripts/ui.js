@@ -62,6 +62,7 @@ const signUpFailure = function () {
 
 const signInSuccess = function (data) {
   $('#messageContent').text('')
+  $('#sign-up').hide()
   $('#signInAfterSignUp').hide()
   $('#signInMessage').show()
   $('#signInMessage').text('Signed in as ' + data.user.email)
