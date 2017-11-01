@@ -4,6 +4,7 @@ const getFormFields = require(`../../lib/get-form-fields`)
 const api = require('./api')
 const ui = require('./ui')
 const store = require('./store')
+const albumArt = require('album-art')
 
 const onSignUp = function (event) {
   const data = getFormFields(this)
@@ -93,6 +94,18 @@ const onGetAlbums = function (event) {
     .catch(ui.getAlbumsError)
 }
 
+const getAlbumArt = function (artist, title) {
+  return new Promise((resolve, reject) => {
+    albumArt(artist, title, 'large', function (err, url) {
+      if (err) {
+        reject(err)
+      } else {
+        resolve(url)
+      }
+    })
+  })
+}
+
 const onAddAlbum = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
@@ -101,13 +114,17 @@ const onAddAlbum = function (event) {
   const year = data.album.year
   const format = data.album.format
   const catalog = data.album.catalog
+  // const imageURL =
   if (year.match(/[a-z]/i)) {
     $('#addedAlbumMessage').show()
     $('#addedAlbumMessage').text('Please enter a numeric year.')
   } else {
-    api.addAlbum(title, artist, year, format, catalog)
-      .then(ui.addAlbumSuccess)
-      .catch(ui.addAlbumFailure)
+    getAlbumArt(artist, title)
+      .then((url) => {
+        api.addAlbum(title, artist, year, format, catalog, url)
+          .then(ui.addAlbumSuccess)
+          .catch(ui.addAlbumFailure)
+      })
   }
 }
 

@@ -60,7 +60,8 @@ const getAlbum = function (id) {
   })
 }
 
-const addAlbum = function (title, artist, year, format, catalog) {
+const addAlbum = function (title, artist, year, format, catalog, imageURL) {
+  console.log('this is ', imageURL)
   return $.ajax({
     url: config.apiOrigin + '/albums',
     method: 'POST',
@@ -73,7 +74,8 @@ const addAlbum = function (title, artist, year, format, catalog) {
         'artist_name': artist,
         'year_released': year,
         'format': format,
-        'catalog_number': catalog
+        'catalog_number': catalog,
+        'cover': imageURL
       }
     }
   })
