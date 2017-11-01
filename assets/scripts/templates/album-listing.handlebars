@@ -4,6 +4,11 @@
  <!-- Developers, why are we using data-id and not just id? -->
 <div>
   <u1 data-id="{{album.id}}">
+    <li>{{#if album.cover}}
+      <img src="{{album.cover}}"
+    {{else}}
+      No Cover Art
+    {{/if}}</li>
     <li><b>Album Title:</b> {{album.title}}</li>
     <li>{{#if album.artist_name}}
       <b>Artist:</b> {{album.artist_name}}

@@ -61,7 +61,6 @@ const getAlbum = function (id) {
 }
 
 const addAlbum = function (title, artist, year, format, catalog, imageURL) {
-  console.log('this is ', imageURL)
   return $.ajax({
     url: config.apiOrigin + '/albums',
     method: 'POST',

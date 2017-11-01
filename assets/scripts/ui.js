@@ -130,8 +130,6 @@ const changePasswordFailure = function () {
 
 const getAlbumsSuccess = function (albums) {
   store.albums = albums
-  console.log(store.albums)
-  console.log(store.albums.albums[0].cover)
   const showAlbumsHtml = showAlbumsTemplate({ albums: albums.albums })
   $('#myAlbums').show()
   howManyAlbums()

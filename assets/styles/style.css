@@ -38,7 +38,7 @@
   text-align: justify;
 }
 
-img {
+.image {
   float: right;
   height: 125px;
   margin: auto;
@@ -49,6 +49,11 @@ img {
 
 .format-class {
   width: 27%;
+}
+
+img {
+  height: 150px;
+  width: 150px;
 }
 
 .message {
