@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>My Record Collector</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+      <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <!-- <a class="navbar-brand" href="#">My Record Collector</a> -->
+            <p class="navbar-brand">My Record Collector</p>
+          </div>
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li id="signUpLink" data-toggle="modal" data-target="#exampleModal">
+                  <a href="#" id="signUpLink">Sign Up/Sign In</a>
+                </li>
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li id="changePassword" style="display: none" data-toggle="modal" data-target="#changePasswordModal">
+                  <a href="#changePassword">Change Password</a>
+                </li>
+                <li id="signOut" style="display: none">
+                  <a href="#signOut">Sign Out</a>
+                </li>
+                <li id="userNameNav" style="display: none" class="navbar-brand">
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <!-- <h4 class="modal-title" id="exampleModalLabel">Sign Up/In</h4> -->
+                  <a href="#signIn" id="signInModal" name="signInModal">Already a registered member? Sign in!</a>
+                  <a href="#signUp" id="signUpModal" style="display: none">Not yet a member? Sign up!</a>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form id="sign-up">
+                    <fieldset>
+                      <legend>Sign up!</legend>
+                      <input type="email" name="credentials[email]" placeholder="Enter Email" required id=signUpEmail>
+                      <input type="password" name="credentials[password]" placeholder="Enter Password" required id=signUpPassword>
+                      <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password" required id=signUpPasswordConf>
+                      <button type="submit" name="submit" value="Sign Up!"class="btn btn-primary">Submit</button>
+                      <br>
+                      <div class="containerSignIn">
+                        <section id="messageContent"></section>
+                        <a href="#signIn" id="signInAfterSignUp" name="signInAfterSignUp" style="display: none">Sign in to start collecting!</a>
+                      </div>
+                    </fieldset>
+                  </form>
+                  <form id="sign-in" style="display: none">
+                    <fieldset>
+                      <legend>Sign in!</legend>
+                      <input type="email" name="credentials[email]" placeholder="Enter Email" required id=signInEmail>
+                      <input type="password" name="credentials[password]" placeholder="Enter Password" required id=signInPassword>
+                      <button type="submit" name="submit" value="Sign In!"class="btn btn-primary">Submit</button>
+                      <br>
+                    </fieldset>
+                  </form>
+                  <section id="signInMessage"></section>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal" id="signClose">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal fade" id="changePasswordModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <!-- <h4 class="modal-title" id="exampleModalLabel">Sign Up/In</h4> -->
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form id="change-password">
+                    <fieldset>
+                      <legend>Change Password:</legend>
+                      <input type="password" name="passwords[old]" placeholder="Enter Password" required id="changeOld">
+                      <input type="password" name="passwords[new]" placeholder="Enter New Password" required id="changeNew">
+                      <button type="submit" name="submit" value="Change Password!"class="btn btn-primary">Submit</button>
+                      <section id="passwordChange"></section>
+                    </fieldset>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal" id="passwordClose">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+    <div class="container">
+    <div class="jumbotron">
+
+      <h1>My Record Collector</h1>
+      <a href="https://imgur.com/OWiYGNB"><img class="image" src="https://i.imgur.com/OWiYGNB.png" alt="vinyl" title="source: imgur.com" /></a>
+
+      <p>Welcome to My Record Collector! The app that allows you to keep track of your record collection in a digital format.
+         Sign up and sign in to start adding to your collection!
+      </p>
+
+     <button id="get-albums" type="submit" name="submit" value="My Albums"class="btn btn-primary" style="display: none">View My Albums</button>
+     <button id="add-album" type="submit" name="submit" value="Add Album"class="btn btn-primary" data-toggle="modal" data-target="#addAlbumModal" style="display: none">Add Album</button>
+
+    </div>
+    <div class="modal fade" id="addAlbumModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <!-- <h4 class="modal-title" id="exampleModalLabel">Sign Up/In</h4> -->
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="adding-album">
+              <fieldset>
+                <legend>Add Album:</legend>
+                <input type="text" name="album[title]" placeholder="Album Title" required id="newAlbumTitle"><br>
+                <input type="text" name="album[name]" placeholder="Artist Name" required id="newArtistName"><br>
+                <input type="text" name="album[year]" placeholder="Year Released" required id="yearReleased" maxlength="4"><br>
+                <select class="format-class" name="album[format]" required id="format">
+                  <option value="" disabled selected hidden>Format</option>
+                  <option value="CD">CD</option>
+                  <option value="Tape">Tape</option>
+                  <option value="Vinyl">Vinyl</option></select><br>
+                <input type="text" name="album[catalog]" placeholder="Catalog #" id="catalogNum"><br>
+                <br>
+                <section id="addedAlbumMessage" style="display: none"></section>
+                <br>
+                <button type="submit" name="submit" value="Sign Up!"class="btn btn-primary">Submit</button>
+                <section id="newAlbumAdd"></section>
+              </fieldset>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" id="addClose">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <section id="signedOut" style="display: none" class="message">You have been logged out.</section>
+  <section id="deletedAlbum" style="display: none" class="message"></section>
+  <section id="myAlbums" style="display: none" class="howMany"></section>
+  <br>
+  <div id="viewAlbums" class="myAlbums" style="display: none"></div>
+
+  <div class="modal fade" id="editAlbumModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <!-- <h4 class="modal-title" id="exampleModalLabel">Sign Up/In</h4> -->
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="edit-album">
+            <fieldset>
+              <legend>Edit Album:</legend>
+              <input type="text" name="editAlbum[title]" placeholder="Album Title" required id="editAlbumTitle"><br>
+              <input type="text" name="editAlbum[name]" placeholder="Artist Name" required id="editArtistName"><br>
+              <input type="text" name="editAlbum[year]" placeholder="Year Released" required id="editYearReleased" maxlength="4"><br>
+              <select class="format-class" name="editAlbum[format]" required id="editFormat">
+                <option value="" disabled selected hidden>Format</option>
+                <option value="CD">CD</option>
+                <option value="Tape">Tape</option>
+                <option value="Vinyl">Vinyl</option></select><br>
+              <input type="text" name="editAlbum[catalog]" placeholder="Catalog #" id="editCatalogNum"><br>
+              <br>
+              <section id="editedAlbumMessage" style="display: none"></section>
+              <br>
+              <button type="submit" name="submit" value="Edit!"class="btn btn-primary">Submit</button>
+              <section id="albumEdit"></section>
+            </fieldset>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" id="editClose">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+        <form class="search" id="searching-albums" style="display: none">
+          <fieldset>
+            <legend>Search Albums By Artist:</legend>
+            <input type="text" name="searchAlbum[name]" placeholder="Artist Name" required id="searchArtistName"><br>
+            <br>
+            <section id="searchAlbumMessage" style="display: none"></section>
+            <button id="search-albums" type="submit" name="submit" value="Search Album" class="btn btn-primary">Search Albums By Artist</button>
+            <section id="searchAlbums"></section>
+          </fieldset>
+  </form>
+  </body>
+</html>
