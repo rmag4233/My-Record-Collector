@@ -95,6 +95,7 @@ const onGetAlbums = function (event) {
 }
 
 const getAlbumArt = function (artist, title) {
+  // updated node_modules file for album art to not hit port 80
   return new Promise((resolve, reject) => {
     albumArt(artist, title, 'large', function (err, url) {
       if (err) {
